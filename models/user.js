@@ -7,6 +7,12 @@ const UserSchema = new mongoose.Schema({
         type: String,
         required: [true, "Please provide username"],
         trim: true,
+        unique: true,
+    },
+    name: {
+        type: String,
+        required: [true, "Please provide Legal Name"],
+        trim: true,
     },
     password: {
         type: String,
@@ -19,7 +25,7 @@ const UserSchema = new mongoose.Schema({
             /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
             "Please provide valid email",
         ],
-        uniqure: true,
+        unique: true,
     },
     phoneNumber: {
         type: Number,

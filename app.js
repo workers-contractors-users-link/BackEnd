@@ -2,12 +2,21 @@ require("dotenv").config();
 require("express-async-errors");
 const express = require("express");
 const connectDB = require("./db/connectDB");
+const { authRouter } = require("./routes");
+const { pageNotFound, errorHandler } = require("./middlewares");
 
 const app = express();
+
+app.use(express.json());
 
 app.get("/", async (req, res) => {
     res.send("Hello World!");
 });
+
+app.use("/api/v1", authRouter);
+
+app.use(errorHandler);
+app.use(pageNotFound);
 
 const mongoDBUrl = process.env.MONGO_DB_URL;
 const port = process.env.PORT || 8080;
