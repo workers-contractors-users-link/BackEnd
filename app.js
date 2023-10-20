@@ -4,10 +4,12 @@ const express = require("express");
 const connectDB = require("./db/connectDB");
 const { authRouter, contractRouter } = require("./routes");
 const { pageNotFound, errorHandler } = require("./middlewares");
+const cors = require("cors");
 
 const app = express();
 
 app.use(express.json());
+app.use(cors());
 
 app.get("/", async (req, res) => {
     res.send("Hello World!");
