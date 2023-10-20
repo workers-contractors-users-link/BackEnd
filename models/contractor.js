@@ -53,6 +53,14 @@ const ContractorSchema = new mongoose.Schema({
         default: 1,
         max: 5,
     },
+    ethAddress: {
+        type: String,
+        required: [true, "Please provide the Ethereum Address"],
+    },
+    collateralDeposited: {
+        type: Number,
+        default: 0,
+    },
 });
 
 UserSchema.pre("save", async function (next) {
@@ -63,7 +71,11 @@ UserSchema.pre("save", async function (next) {
 
 UserSchema.methods.createJWT(function () {
     return jwt.sign(
-        { userId: this._id, username: this.username },
+        {
+            userId: this._id,
+            username: this.username,
+            userType: "contractor",
+        },
         process.env.JWT_SECRET,
         { expiresIn: process.env.JWT_LIFETIME }
     );

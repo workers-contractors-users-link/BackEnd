@@ -2,7 +2,7 @@ require("dotenv").config();
 require("express-async-errors");
 const express = require("express");
 const connectDB = require("./db/connectDB");
-const { authRouter } = require("./routes");
+const { authRouter, contractRouter } = require("./routes");
 const { pageNotFound, errorHandler } = require("./middlewares");
 
 const app = express();
@@ -13,7 +13,10 @@ app.get("/", async (req, res) => {
     res.send("Hello World!");
 });
 
-app.use("/api/v1", authRouter);
+console.log("hii");
+
+app.use("/api/auth", authRouter);
+app.use("/api/contract", contractRouter);
 
 app.use(errorHandler);
 app.use(pageNotFound);
@@ -27,7 +30,7 @@ const startServer = async () => {
             console.log("Database connection established")
         );
 
-        app.listen(port, () => console.log(`Listening on port : ${port}`));
+        app.listen(port, () => console.log(`Listening on port : port`));
     } catch (error) {
         console.log(error);
     }

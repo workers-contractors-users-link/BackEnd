@@ -1,8 +1,8 @@
 const { StatusCodes } = require("http-status-codes");
-const Contractor = require("../../models/contractor");
+const Client = require("../../models/client");
 const { BadRequestError } = require("../../errors");
 
-const signUpContractor = async (req, res) => {
+const signUpClient = async (req, res) => {
     const {
         username,
         name,
@@ -25,25 +25,25 @@ const signUpContractor = async (req, res) => {
         throw new BadRequestError("Please provide all required credentials.");
     }
 
-    const existingContractor = await Contractor.findOne({
+    const existingClient = await Client.findOne({
         $or: [{ email }, { username }],
     });
 
-    if (existingContractor) {
+    if (existingClient) {
         throw new BadRequestError(
-            "User with the same email or username already exists."
+            "Client with the same email or username already exists."
         );
     }
 
-    const contractor = await Contractor.create({ ...req.body });
+    const client = await Client.create({ ...req.body });
 
-    if (!contractor) {
-        throw new InternalServerError("Unable to create a user.");
+    if (!client) {
+        throw new InternalServerError("Unable to create a client.");
     }
 
     res.status(StatusCodes.OK).json({
-        msg: `Contractor, ${username} signed up`,
+        msg: `Client, ${clientname} signed up`,
     });
 };
 
-module.exports = signUpContractor;
+module.exports = signUpClient;
