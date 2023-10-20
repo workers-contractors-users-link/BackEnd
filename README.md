@@ -12,7 +12,8 @@ now start making request as follows
 ```javascript
 import axios from "axios";
 
-const baseUrl = "http://localhost:8080/api/auth"; // Set the base URL
+const baseUrlAuth = "http://localhost:8080/api/auth"; // Set the base URL
+const baseUrlContractor = "http://localhost:8080/api/contractor"; // Set the base URL
 
 const token = "your-auth-token";
 
@@ -21,55 +22,55 @@ const requestBody = {
     // Replace with the request body data for the specific endpoint
 };
 
-axios.post(`${baseUrl}/setKycVerified`, requestBody, {
+axios.post(`${baseUrlContractor}/setKycVerified`, requestBody, {
     headers: {
         Authorization: `Bearer ${token}`,
     },
 });
 
-axios.post(`${baseUrl}/acceptContract`, requestBody, {
+axios.post(`${baseUrlContractor}/acceptContract`, requestBody, {
     headers: {
         Authorization: `Bearer ${token}`,
     },
 });
 
-axios.post(`${baseUrl}/confirmContract`, requestBody, {
+axios.post(`${baseUrlContractor}/confirmContract`, requestBody, {
     headers: {
         Authorization: `Bearer ${token}`,
     },
 });
 
-axios.post(`${baseUrl}/endTalks`, requestBody, {
+axios.post(`${baseUrlContractor}/endTalks`, requestBody, {
     headers: {
         Authorization: `Bearer ${token}`,
     },
 });
 
-axios.post(`${baseUrl}/finalizeContract`, requestBody, {
+axios.post(`${baseUrlContractor}/finalizeContract`, requestBody, {
     headers: {
         Authorization: `Bearer ${token}`,
     },
 });
 
-axios.post(`${baseUrl}/getContract`, requestBody, {
+axios.post(`${baseUrlContractor}/getContract`, requestBody, {
     headers: {
         Authorization: `Bearer ${token}`,
     },
 });
 
-axios.post(`${baseUrl}/proceedWithContract`, requestBody, {
+axios.post(`${baseUrlContractor}/proceedWithContract`, requestBody, {
     headers: {
         Authorization: `Bearer ${token}`,
     },
 });
 
-axios.post(`${baseUrl}/contractor/login`, requestBody);
+axios.post(`${baseUrlAuth}/contractor/login`, requestBody);
 
-axios.post(`${baseUrl}/contractor/signup`, requestBody);
+axios.post(`${baseUrlAuth}/contractor/signup`, requestBody);
 
-axios.post(`${baseUrl}/client/login`, requestBody);
+axios.post(`${baseUrlAuth}/client/login`, requestBody);
 
-axios.post(`${baseUrl}/client/signup`, requestBody);
+axios.post(`${baseUrlAuth}/client/signup`, requestBody);
 ```
 
 ## If using deployed app
@@ -77,5 +78,6 @@ axios.post(`${baseUrl}/client/signup`, requestBody);
 then use the follwing baseURL
 
 ```javascript
-const baseUrl = "http://localhost:8080/api/auth"; // Set the base URL
+const baseUrlAuth = "https://back-end-ty14.vercel.app/auth";
+const baseUrlContractor = "https://back-end-ty14.vercel.app/contractor";
 ```
