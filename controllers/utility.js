@@ -1,6 +1,6 @@
 const { StatusCodes } = require("http-status-codes");
-const Client = require("../../models/client");
-const Constructor = require("../../models/contractor");
+const Client = require("../models/client");
+const Constructor = require("../models/contractor");
 const { InternalServerError } = require("../errors");
 
 const setKycVerified = async (req, res) => {

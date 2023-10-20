@@ -63,13 +63,13 @@ const ContractorSchema = new mongoose.Schema({
     },
 });
 
-UserSchema.pre("save", async function (next) {
+ContractorSchema.pre("save", async function (next) {
     const salt = await bcrypt.genSalt(10);
     this.password = await bcrypt.hash(this.password, salt);
     next();
 });
 
-UserSchema.methods.createJWT(function () {
+ContractorSchema.methods.createJWT = function () {
     return jwt.sign(
         {
             userId: this._id,
@@ -79,11 +79,11 @@ UserSchema.methods.createJWT(function () {
         process.env.JWT_SECRET,
         { expiresIn: process.env.JWT_LIFETIME }
     );
-});
+};
 
-UserSchema.methods.checkPassword(async function (password) {
+ContractorSchema.methods.checkPassword = async function (password) {
     const result = await bcrypt.compare(password, this.password);
     return result;
-});
+};
 
 module.exports = mongoose.model("Contractor", ContractorSchema);

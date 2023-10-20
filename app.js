@@ -15,8 +15,6 @@ app.get("/", async (req, res) => {
     res.send("Hello World!");
 });
 
-console.log("hii");
-
 app.use("/api/auth", authRouter);
 app.use("/api/contract", contractRouter);
 
