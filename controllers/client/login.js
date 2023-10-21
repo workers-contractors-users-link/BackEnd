@@ -17,21 +17,18 @@ const {
  */
 const loginClient = async (req, res) => {
     // Destructure the username, email, and password from the request body
-    const { username, email, password } = req.body;
+    const { credentials, password } = req.body;
 
     // Check if either username or email and password are not provided
-    if ((!username && !email) || !password) {
+    if (!credentials || !password) {
         throw new BadRequestError(
             "Please provide email/username and password!"
         );
     }
 
-    let client;
-    // Find the client by email if provided, otherwise find by username
-    if (email) {
-        client = await Client.findOne({ email });
-    } else {
-        client = await Client.findOne({ username });
+    let client = await Client.findOne({ email: credentials });
+    if (!client) {
+        client = await Client.findOne({ username: credentials });
     }
 
     // If no client is found with the provided email, throw a NotFoundError

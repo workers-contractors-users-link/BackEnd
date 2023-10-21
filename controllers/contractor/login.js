@@ -17,22 +17,18 @@ const {
  */
 const loginContractor = async (req, res) => {
     // Retrieve the username, email, and password from the request body
-    const { username, email, password } = req.body;
+    const { credentials, password } = req.body;
 
-    // Check if either username or email and password are missing
-    if ((!username && !email) || !password) {
-        // Throw a BadRequestError if they are missing
+    // Check if either username or email and password are not provided
+    if (!credentials || !password) {
         throw new BadRequestError(
-            "Please provide username/email and password!"
+            "Please provide email/username and password!"
         );
     }
 
-    let contractor;
-    // Find the contractor by either username or email
-    if (username) {
-        contractor = await Contractor.findOne({ username });
-    } else {
-        contractor = await Contractor.findOne({ email });
+    let client = await Client.findOne({ email: credentials });
+    if (!client) {
+        client = await Client.findOne({ username: credentials });
     }
 
     // Throw a NotFoundError if no contractor is found
