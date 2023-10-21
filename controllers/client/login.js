@@ -63,7 +63,7 @@ const loginClient = async (req, res) => {
             type: "Client",
         },
         token: token,
-        status: true,
+        result: true,
     });
 };
 

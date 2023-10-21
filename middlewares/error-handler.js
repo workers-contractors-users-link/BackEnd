@@ -8,7 +8,7 @@ const errorHandler = async (error, req, res, next) => {
 
     res.status(customError.status).json({
         msg: customError.msg,
-        status: false,
+        result: false,
     });
 };
 

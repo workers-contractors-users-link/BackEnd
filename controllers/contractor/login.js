@@ -67,6 +67,7 @@ const loginContractor = async (req, res) => {
             type: "Contractor",
         },
         token,
+        result: true,
     });
 };
 

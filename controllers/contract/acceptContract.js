@@ -52,7 +52,7 @@ const acceptContract = async (req, res) => {
     // Return success response
     res.status(StatusCodes.OK).json({
         msg: "Contract talks accepted successfully.",
-        status: true,
+        result: true,
     });
 };
 

@@ -62,7 +62,7 @@ const endTalks = async (req, res) => {
     // Return success response
     res.status(StatusCodes.OK).json({
         msg: "Contract talks ended successfully.",
-        status: true,
+        result: true,
     });
 };
 

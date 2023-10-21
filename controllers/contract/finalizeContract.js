@@ -54,7 +54,7 @@ const finalizeContract = async (req, res) => {
     // Return a JSON response indicating the success of the operation
     res.status(StatusCodes.OK).json({
         msg: "Contract talks finalized successfully.",
-        status: true,
+        result: true,
     });
 };
 

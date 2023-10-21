@@ -58,6 +58,7 @@ const signUpContractor = async (req, res) => {
     // Sending success response
     res.status(StatusCodes.OK).json({
         msg: `Contractor, ${username} signed up`,
+        result: true,
     });
 };
 

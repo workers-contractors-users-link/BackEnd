@@ -59,7 +59,7 @@ const signUpClient = async (req, res) => {
     // Send a response indicating successful sign up
     res.status(StatusCodes.OK).json({
         msg: `Client, ${clientname} signed up`,
-        status: true,
+        result: true,
     });
 };
 

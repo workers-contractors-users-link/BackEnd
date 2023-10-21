@@ -46,7 +46,7 @@ const setKycVerified = async (req, res) => {
     // Return success response
     res.status(StatusCodes.OK).json({
         msg: "Kyc verified successfully",
-        status: true,
+        result: true,
     });
 };
 

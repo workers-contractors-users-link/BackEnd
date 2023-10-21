@@ -59,7 +59,7 @@ const proceedWithContract = async (req, res) => {
     res.status(StatusCodes.CREATED).json({
         msg: "Contract talks proceeded successfully.",
         newContract,
-        status: true,
+        result: true,
     });
 };
 

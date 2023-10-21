@@ -79,7 +79,7 @@ const getContract = async (req, res) => {
     res.status(StatusCodes.OK).json({
         msg: "Contracts fetched successfully",
         contracts,
-        status: true,
+        result: true,
     });
 };
 
