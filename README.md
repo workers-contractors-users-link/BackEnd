@@ -13,7 +13,7 @@ now start making request as follows
 import axios from "axios";
 
 const baseUrlAuth = "http://localhost:8080/api/auth"; // Set the base URL
-const baseUrlContractor = "http://localhost:8080/api/contractor"; // Set the base URL
+const baseUrlContract = "http://localhost:8080/api/contract"; // Set the base URL
 
 const token = "your-auth-token";
 
@@ -22,43 +22,43 @@ const requestBody = {
     // Replace with the request body data for the specific endpoint
 };
 
-axios.post(`${baseUrlContractor}/setKycVerified`, requestBody, {
+axios.post(`${baseUrlContract}/setKycVerified`, requestBody, {
     headers: {
         Authorization: `Bearer ${token}`,
     },
 });
 
-axios.post(`${baseUrlContractor}/acceptContract`, requestBody, {
+axios.post(`${baseUrlContract}/acceptContract`, requestBody, {
     headers: {
         Authorization: `Bearer ${token}`,
     },
 });
 
-axios.post(`${baseUrlContractor}/confirmContract`, requestBody, {
+axios.post(`${baseUrlContract}/confirmContract`, requestBody, {
     headers: {
         Authorization: `Bearer ${token}`,
     },
 });
 
-axios.post(`${baseUrlContractor}/endTalks`, requestBody, {
+axios.post(`${baseUrlContract}/endTalks`, requestBody, {
     headers: {
         Authorization: `Bearer ${token}`,
     },
 });
 
-axios.post(`${baseUrlContractor}/finalizeContract`, requestBody, {
+axios.post(`${baseUrlContract}/finalizeContract`, requestBody, {
     headers: {
         Authorization: `Bearer ${token}`,
     },
 });
 
-axios.post(`${baseUrlContractor}/getContract`, requestBody, {
+axios.post(`${baseUrlContract}/getContract`, requestBody, {
     headers: {
         Authorization: `Bearer ${token}`,
     },
 });
 
-axios.post(`${baseUrlContractor}/proceedWithContract`, requestBody, {
+axios.post(`${baseUrlContract}/proceedWithContract`, requestBody, {
     headers: {
         Authorization: `Bearer ${token}`,
     },
@@ -80,4 +80,5 @@ then use the follwing baseURL
 ```javascript
 const baseUrlAuth = "https://back-end-ty14.vercel.app/auth";
 const baseUrlContractor = "https://back-end-ty14.vercel.app/contractor";
+K;
 ```

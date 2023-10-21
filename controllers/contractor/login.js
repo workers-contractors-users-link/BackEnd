@@ -51,23 +51,21 @@ const loginContractor = async (req, res) => {
     // Create a JSON Web Token (JWT) for the contractor
     const token = contractor.createJWT();
 
-    // Extract the necessary contractor information
-    const contractorInfo = {
-        username: contractor.username,
-        name: contractor.name,
-        email: contractor.email,
-        phoneNumber: contractor.phoneNumber,
-        address: contractor.address,
-        kycVerified: contractor.kycVerified,
-        score: contractor.score,
-        level: contractor.level,
-        collateralDeposited: contractor.collateralDeposited,
-    };
-
     // Send a response with the contractor information and the token
     res.status(StatusCodes.OK).json({
         msg: `${contractor.username} logged in`,
-        user: contractorInfo,
+        user: {
+            username: contractor.username,
+            name: contractor.name,
+            email: contractor.email,
+            phoneNumber: contractor.phoneNumber,
+            address: contractor.address,
+            kycVerified: contractor.kycVerified,
+            score: contractor.score,
+            level: contractor.level,
+            collateralDeposited: contractor.collateralDeposited,
+            type: "Contractor",
+        },
         token,
     });
 };

@@ -3,10 +3,19 @@ const Client = require("../models/client");
 const Constructor = require("../models/contractor");
 const { InternalServerError } = require("../errors");
 
+/**
+ * Set KYC verified for a user.
+ *
+ * @param {Object} req - The request object.
+ * @param {Object} res - The response object.
+ * @returns {Promise<void>} - A promise that resolves when KYC verification is set.
+ */
 const setKycVerified = async (req, res) => {
     const { userId, userType } = req.user;
 
     let user;
+
+    // Find and update user based on userType
     if (userType === "client") {
         user = await Client.findByIdAndUpdate(
             userId,
@@ -29,12 +38,15 @@ const setKycVerified = async (req, res) => {
         );
     }
 
+    // Throw an error if user is not found
     if (!user) {
         throw new InternalServerError("Unable to set kycVerified");
     }
 
+    // Return success response
     res.status(StatusCodes.OK).json({
         msg: "Kyc verified successfully",
+        status: true,
     });
 };
 

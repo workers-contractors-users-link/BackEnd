@@ -60,8 +60,10 @@ const loginClient = async (req, res) => {
             phoneNumber: client.phoneNumber,
             address: client.address,
             kycVerified: client.kycVerified,
+            type: "Client",
         },
         token: token,
+        status: true,
     });
 };
 

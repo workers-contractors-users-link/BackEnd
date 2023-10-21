@@ -6,7 +6,10 @@ const errorHandler = async (error, req, res, next) => {
         status: error.statusCode || StatusCodes.INTERNAL_SERVER_ERROR,
     };
 
-    res.status(customError.status).json({ msg: customError.msg });
+    res.status(customError.status).json({
+        msg: customError.msg,
+        status: false,
+    });
 };
 
 module.exports = errorHandler;

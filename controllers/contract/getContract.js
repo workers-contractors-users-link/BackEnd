@@ -39,6 +39,8 @@ const getContract = async (req, res) => {
             const contractorInTalks = await Contractor.findById(
                 contract.contractorId
             );
+
+            // Update contract fields with contractor details
             contract.contractorAddress = contractorInTalks.address;
             contract.contractorPhoneNumber = contractorInTalks.phoneNumber;
             contract.contractorEmail = contractorInTalks.email;
@@ -65,6 +67,8 @@ const getContract = async (req, res) => {
         // Update each contract with client details
         for (const contract of contracts) {
             const clientInTalks = await Client.findById(contract.clientId);
+
+            // Update contract fields with client details
             contract.clientAddress = clientInTalks.address;
             contract.clientPhoneNumber = clientInTalks.phoneNumber;
             contract.clientEmail = clientInTalks.email;
@@ -75,6 +79,7 @@ const getContract = async (req, res) => {
     res.status(StatusCodes.OK).json({
         msg: "Contracts fetched successfully",
         contracts,
+        status: true,
     });
 };
 
