@@ -78,7 +78,7 @@ axios.post(`${baseUrlAuth}/client/signup`, requestBody);
 then use the follwing baseURL
 
 ```javascript
-const baseUrlAuth = "https://back-end-ty14.vercel.app/auth";
-const baseUrlContractor = "https://back-end-ty14.vercel.app/contractor";
+const baseUrlAuth = "https://back-end-ty14.vercel.app/api/auth";
+const baseUrlContractor = "https://back-end-ty14.vercel.app/api/contractor";
 K;
 ```
