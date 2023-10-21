@@ -26,9 +26,9 @@ const loginContractor = async (req, res) => {
         );
     }
 
-    let client = await Contractor.findOne({ email: credentials });
-    if (!client) {
-        client = await Contractor.findOne({ username: credentials });
+    let contractor = await Contractor.findOne({ email: credentials });
+    if (!contractor) {
+        contractor = await Contractor.findOne({ username: credentials });
     }
 
     // Throw a NotFoundError if no contractor is found

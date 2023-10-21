@@ -60,6 +60,9 @@ const signUpClient = async (req, res) => {
     res.status(StatusCodes.OK).json({
         msg: `Client, ${client.name} signed up`,
         result: true,
+        data: {
+            userId: client._id,
+        },
     });
 };
 
