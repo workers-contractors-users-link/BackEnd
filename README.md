@@ -52,7 +52,7 @@ axios.post(`${baseUrlContract}/finalizeContract`, requestBody, {
     },
 });
 
-axios.post(`${baseUrlContract}/getContract`, requestBody, {
+axios.get(`${baseUrlContract}/getContract`, {
     headers: {
         Authorization: `Bearer ${token}`,
     },
