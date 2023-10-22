@@ -59,9 +59,7 @@ const signUpContractor = async (req, res) => {
     res.status(StatusCodes.OK).json({
         msg: `Contractor, ${username} signed up`,
         result: true,
-        data: {
-            userId: contractor._id,
-        }
+        userId: contractor._id,
     });
 };
 
