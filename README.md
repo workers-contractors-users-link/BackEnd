@@ -1,84 +1,37 @@
-in order to make a request to the backend
-follow the steps
+# Backend for Handling Non-Logged, Repetitive Operations
 
-### If Cloning this repository
+## Overview
 
-`npm i`
+This backend is designed to facilitate operations that involve repetitive writing, but do not require logging or tracking on a blockchain. The primary motivation behind this system is to conserve gas when working with blockchain technologies. Writing on a blockchain incurs gas fees, and for operations where this is unnecessary, a centralized system can be more efficient.
 
-`nodemon app.js`
+The primary use case for this backend is to support initial interactions and exchanges between clients and contractors. This initial interaction helps both parties decide if they wish to work together. If they choose to collaborate, they can then transition their interaction to a blockchain-based system.
 
-now start making request as follows
+## Why Centralized System for Initial Interactions?
 
-```javascript
-import axios from "axios";
+**Gas Efficiency:** Blockchain transactions come with costs in the form of gas fees. These fees can accumulate, especially for repeated or frequent interactions. By using a centralized system for initial talks and exchanges, parties can save on gas fees until they are certain about collaborating.
 
-const baseUrlAuth = "http://localhost:8080/api/auth"; // Set the base URL
-const baseUrlContract = "http://localhost:8080/api/contract"; // Set the base URL
+**Flexibility:** Centralized systems are more flexible when it comes to data management and privacy. They allow for discussions and data sharing without the constraints of a public, immutable ledger. This flexibility can be valuable in the early stages of collaboration when parties may still be negotiating terms.
 
-const token = "your-auth-token";
+**Performance:** Centralized systems often offer faster response times and lower latencies compared to blockchain networks. This is important for ensuring smooth and efficient communication during the initial phases of engagement.
 
-// Replace with actual data for the request body
-const requestBody = {
-    // Replace with the request body data for the specific endpoint
-};
+## How It Works
 
-axios.post(`${baseUrlContract}/setKycVerified`, requestBody, {
-    headers: {
-        Authorization: `Bearer ${token}`,
-    },
-});
+1. **Initial Interaction:** Clients and contractors engage with each other through this backend system. They can communicate, exchange information, and discuss terms without incurring blockchain gas fees.
 
-axios.post(`${baseUrlContract}/acceptContract`, requestBody, {
-    headers: {
-        Authorization: `Bearer ${token}`,
-    },
-});
+2. **Decision-Making:** Both parties have the opportunity to determine if they want to work together based on their initial interactions. If they decide to collaborate, they can proceed to formalize their agreement on the blockchain.
 
-axios.post(`${baseUrlContract}/confirmContract`, requestBody, {
-    headers: {
-        Authorization: `Bearer ${token}`,
-    },
-});
+3. **Transition to Blockchain:** When ready, the parties can migrate their interaction to a blockchain-based platform. This transition can involve creating smart contracts, recording agreements, and executing blockchain transactions.
 
-axios.post(`${baseUrlContract}/endTalks`, requestBody, {
-    headers: {
-        Authorization: `Bearer ${token}`,
-    },
-});
+## Technology Stack
 
-axios.post(`${baseUrlContract}/finalizeContract`, requestBody, {
-    headers: {
-        Authorization: `Bearer ${token}`,
-    },
-});
+This backend is built using a technology stack suitable for handling non-logged, repetitive operations efficiently. The specific technologies used may vary based on the requirements and preferences of the system's users. Some common components include:
 
-axios.get(`${baseUrlContract}/getContract`, {
-    headers: {
-        Authorization: `Bearer ${token}`,
-    },
-});
+-   **Server:** A backend server is used to handle requests and facilitate communication between clients and contractors.
 
-axios.post(`${baseUrlContract}/proceedWithContract`, requestBody, {
-    headers: {
-        Authorization: `Bearer ${token}`,
-    },
-});
+-   **Database:** Data storage may be required for maintaining records of interactions and user information, even though it is not logged on the blockchain.
 
-axios.post(`${baseUrlAuth}/contractor/login`, requestBody);
+-   **APIs:** Application Programming Interfaces are employed to enable communication between different components of the system.
 
-axios.post(`${baseUrlAuth}/contractor/signup`, requestBody);
+## Conclusion
 
-axios.post(`${baseUrlAuth}/client/login`, requestBody);
-
-axios.post(`${baseUrlAuth}/client/signup`, requestBody);
-```
-
-## If using deployed app
-
-then use the follwing baseURL
-
-```javascript
-const baseUrlAuth = "https://back-end-ty14.vercel.app/api/auth";
-const baseUrlContractor = "https://back-end-ty14.vercel.app/api/contractor";
-K;
-```
+This backend system provides an effective solution for managing non-logged, repetitive operations in a cost-efficient manner. It allows clients and contractors to interact, make decisions, and move towards blockchain-based collaboration when they are ready. By saving on gas fees and offering flexibility, this system streamlines the initial phases of engagement, making the process more efficient and user-friendly.
